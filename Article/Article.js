@@ -19,7 +19,7 @@ class Article {
     expandArticle() {
         // Using our reference to the domElement, toggle a class to expand or hide the article.
         //console.log('expand now');
-        this.closeElement();
+        //this.closeElement();
         
         this.domElement.classList.toggle('article-open');
 
@@ -35,15 +35,6 @@ class Article {
         }
     }
 
-    closeElement(){
-        console.log('closed!!');
-        // if(this.domElement.classList.contains('article-open')){
-        //     this.domElement.classList.remove('article-open');
-        //     this.domElement.classList.add('close');
-        // }
-        //this.domElement.classList.toggle('close');
-        console.log(this.domElement);
-    }
 }
 
 /* START HERE: 
