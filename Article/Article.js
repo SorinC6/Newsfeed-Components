@@ -11,21 +11,38 @@ class Article {
         
         this.expandButton.innerHTML='expand';
         
-        console.log(this.expandButton)
+        //console.log(this.domElement);
         // Set a click handler on the expandButton reference, calling the expandArticle method.
         this.expandButton.addEventListener('click', () => this.expandArticle())
     }
-
+    
     expandArticle() {
         // Using our reference to the domElement, toggle a class to expand or hide the article.
         //console.log('expand now');
-
+        this.closeElement();
+        
         this.domElement.classList.toggle('article-open');
-        TweenMax.fromTo(this.domElement, 3, 
-            {height: 50},
-            {height: 400,},
-            
-        );
+
+        if(this.domElement.classList.contains('article-open'))
+            this.expandButton.textContent = 'close'
+        else{
+            this.expandButton.textContent='expand'
+        // TweenMax.fromTo(this.domElement, 3, 
+        //     {height: 50,},
+        //     {height: 400,
+        //     ease: Bounce.easeOut, y: 0},
+        // );
+        }
+    }
+
+    closeElement(){
+        console.log('closed!!');
+        // if(this.domElement.classList.contains('article-open')){
+        //     this.domElement.classList.remove('article-open');
+        //     this.domElement.classList.add('close');
+        // }
+        //this.domElement.classList.toggle('close');
+        console.log(this.domElement);
     }
 }
 
@@ -36,6 +53,7 @@ class Article {
 - With your selection in place, now chain .forEach() on to the articles variable to iterate over the articles NodeList and create a new instance of Article by passing in each article as a parameter to the constructor.
 
 */
+
 
 let articles = document.querySelectorAll('.article');
 
