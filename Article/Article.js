@@ -1,21 +1,32 @@
 // Because classes are not hoised you will need to start your code at the bottom of the page.  Look for the comment "START HERE"
 
 class Article {
-  constructor(domElement) {
-    // assign this.domElement to the passed in domElement
-    this.domElement;
-    // create a reference to the ".expandButton" class. 
-    this.expandButton;
-    // Using your expandButton reference, update the text on your expandButton to say "expand"
-    
-    // Set a click handler on the expandButton reference, calling the expandArticle method.
-    
-  }
+    constructor(domElement) {
+        // assign this.domElement to the passed in domElement
+        this.domElement = domElement;
+        //console.log(this.domElement);
+        // create a reference to the ".expandButton" class. 
+        this.expandButton = this.domElement.querySelector('.article span');
+        //Using your expandButton reference, update the text on your expandButton to say "expand"
+        
+        this.expandButton.innerHTML='expand';
+        
+        console.log(this.expandButton)
+        // Set a click handler on the expandButton reference, calling the expandArticle method.
+        this.expandButton.addEventListener('click', () => this.expandArticle())
+    }
 
-  expandArticle() {
-    // Using our reference to the domElement, toggle a class to expand or hide the article.
+    expandArticle() {
+        // Using our reference to the domElement, toggle a class to expand or hide the article.
+        //console.log('expand now');
 
-  }
+        this.domElement.classList.toggle('article-open');
+        TweenMax.fromTo(this.domElement, 3, 
+            {height: 50},
+            {height: 400,},
+            
+        );
+    }
 }
 
 /* START HERE: 
@@ -26,4 +37,8 @@ class Article {
 
 */
 
-let articles;
+let articles = document.querySelectorAll('.article');
+
+articles.forEach(item => {
+    return new Article(item);
+})
