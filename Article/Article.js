@@ -22,13 +22,10 @@ class Article {
         articles.forEach(item=> {
             item.classList.remove('article-open')})
         this.domElement.classList.toggle('article-open');
-        // TweenMax.fromTo(this.domElement, 3, 
-        //     {height: 50,},
-        //     {height: 400,
-        //     ease: Bounce.easeOut, y: 0},
-        // );
-        if(this.domElement.classList.contains('article-open'))
+       
+        if(this.domElement.classList.contains('article-open')){
             this.expandButton.textContent = 'close'
+        }
         else{
             this.expandButton.textContent='expand'
         
